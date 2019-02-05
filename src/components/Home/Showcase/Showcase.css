@@ -1,0 +1,25 @@
+.showcase-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 30px 0;
+	background: linear-gradient(to bottom, #212121, #616161);
+}
+
+.showcase-img {
+	height: 550px;
+}
+
+
+@media (max-width: 600px) {
+	.showcase-img {
+		height: 250px;
+	}
+}
+
+@media (min-width: 1100px) {
+	.showcase-box {
+		height: 80vh;
+		display: flex;
+	}
+}

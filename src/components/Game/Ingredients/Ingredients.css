@@ -1,0 +1,21 @@
+.Ingredients {
+	margin-top: 20px;
+}
+
+.list-container {
+	display: grid;
+	margin-top: 20px;
+	grid-template-columns: repeat(auto-fill, 280px);
+	grid-gap: 10px;
+}
+
+.symbols-section {
+	border-radius: 5px;
+	padding: 5px 10px 10px 10px;
+	background: #212121;
+	color: #FFFFFF;
+}
+
+.symbols-header {
+	color: #BA68C8;
+}

@@ -1,0 +1,28 @@
+.Grimoire {
+	margin-top: 40px;
+}
+
+.grimoire-heading {
+	width: 50%;
+}
+
+.potion-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-gap: 20px;
+	margin: 20px;
+}
+
+.potion-entry {
+	display: flex;
+	align-items: center;
+	border-radius: 5px;
+	padding: 10px;
+	background: #212121;
+	color: #FFFFFF;
+}
+
+.potion-image {
+	height: 80px;
+	margin-right: 20px;
+}

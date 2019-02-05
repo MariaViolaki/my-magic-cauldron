@@ -1,0 +1,136 @@
+.Table {
+	margin: 10px;
+	box-sizing: border-box;
+	border: 5px solid #4A148C;
+	border-radius: 5px;
+	padding: 15px 30px 30px 30px;
+	background: #BA68C8;
+}
+
+.table-sections {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 300px);
+	justify-content: center;
+}
+
+.table-heading {
+	width: 70%;
+	margin: 20px 0 5px 0;
+}
+
+.ingredient-options {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.ingredient {
+	width: 100px;
+	margin: 5px;
+	box-sizing: border-box;
+	border: 1px solid #212121;
+	border-radius: 5px;
+	padding: 5px;
+	box-shadow: inset 0 0 10px #212121;
+	text-align: center;
+	transition: all 0.3 linear;
+	cursor: pointer;
+}
+
+.ingredient:active {
+	transform: scale(0.95);
+	box-shadow: inset 0 0 20px #212121;
+}
+
+#fire {
+	background: #DD2C00;
+}
+
+#water {
+	background: #00B0FF;
+}
+
+#air {
+	background: #9FA8DA;
+}
+
+#earth {
+	background: #76FF03;
+}
+
+#sunflower {
+	background: #FFEA00;
+}
+
+#petunia {
+	background: #E040FB;
+}
+
+#orchid {
+	background: #F8BBD0;
+}
+
+#daisy {
+	background: #FFFFFF;
+}
+
+#amber {
+	background: #FFAB00;
+}
+
+#diamond {
+	background: #CFD8DC;
+}
+
+#emerald {
+	background: #1DE9B6;
+}
+
+#opal {
+	background: #81D4FA;
+}
+
+.button-container {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 50px;
+}
+
+.star {
+	width: 80px;
+	height: 80px;
+	cursor: pointer;
+	transition: all 0.1 linear;
+}
+
+.star:active {
+	transform: scale(0.90);
+}
+
+.draw-button {
+	padding: 15px 25px 10px 25px;
+	font-size: 26px;
+	font-family: 'Thickhead';
+}
+
+@media (max-width: 600px) {
+	.Table {
+		margin: 0 0 10px 0;
+		padding: 15px 15px 30px 15px;
+	}
+
+	.table-sections {
+		justify-content: center;
+		grid-template-columns: 1fr;
+	}
+
+	.button-container {
+		flex-direction: column-reverse;
+		align-items: center;
+	}
+
+	.draw-button {
+		width: 90%;
+		margin-bottom: 40px;
+		padding: 15px 5px 10px 5px;
+	}
+}

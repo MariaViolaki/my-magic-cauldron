@@ -1,0 +1,9 @@
+.Home {
+	margin-top: 60px;
+}
+
+@media (max-width: 600px) {
+	.Home {
+		margin-top: 120px;
+	}
+}
