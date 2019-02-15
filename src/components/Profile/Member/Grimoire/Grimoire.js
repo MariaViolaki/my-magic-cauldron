@@ -1,6 +1,6 @@
 import React from 'react';
 import './Grimoire.css';
-import { potions } from '../../../potions/potions';
+import { potions } from '../../../../potions/potions';
 
 const renderPotions = potions.map((potion, i) => {
 	return(

@@ -15,20 +15,23 @@ import {
 
 const mapStateToProps = (state) => {
 	return {
-		route: state.route
+		access: state.setUserAccess.access,
+		route: state.setRoute.route
 	};
 }
 
 class App extends Component {
 
 	renderRouteComponent = () => {
-		switch(this.props.route) {
+		const { access, route } = this.props;
+
+		switch(route) {
 			case ROUTE_HOME:
 				return <Home />;
 			case ROUTE_GAME:
 				return <Game />;
 			case ROUTE_PROFILE:
-				return <Profile />;
+				return <Profile access={access}/>;
 			default:
 				return <Home />;
 		}

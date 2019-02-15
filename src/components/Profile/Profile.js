@@ -1,20 +1,32 @@
 import React from 'react';
 import './Profile.css';
-import ProfileInfo from './ProfileInfo/ProfileInfo';
-import PotionScore from './PotionScore/PotionScore';
-import Grimoire from './Grimoire/Grimoire';
+import Member from './Member/Member';
+import SignUp from './SignUp/SignUp';
+import LogIn from './LogIn/LogIn';
 
-const Profile = () => {
+import {
+	SIGNUP,
+	LOGIN,
+	MEMBER
+} from '../../redux/constants';
+
+const Profile = ({ access }) => {
+
+	const renderAccessComponent = () => {
+		switch(access) {
+			case LOGIN:
+				return <LogIn />;
+			case MEMBER:
+				return <Member />;
+			case SIGNUP:
+			default:
+				return <SignUp />;
+		}
+	}
+
 	return(
 		<div className='Profile'>
-			<h1 className='heading profile-heading'>
-				{`Laito Sakamaki`}
-			</h1>
-			<div className='info-box message-section'>
-				<ProfileInfo />
-				<PotionScore />
-			</div>
-			<Grimoire />
+			{renderAccessComponent()}			
 		</div>
 	);
 }

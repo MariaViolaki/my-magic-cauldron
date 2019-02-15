@@ -3,14 +3,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 // Redux imports
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
 // App imports
 import './index.css';
 import App from './components/App/App';
-import { setRoute } from './redux/reducers';
+import {
+	setUserAccess, setRoute, signUpUser, logInUser, updateUser
+} from './redux/reducers';
 
-const store = createStore(setRoute);
+const rootReducer = combineReducers({
+	setUserAccess, setRoute, signUpUser, logInUser, updateUser
+});
+
+const logger = createLogger();
+
+const store = createStore(
+	rootReducer, 
+	applyMiddleware(thunkMiddleware, logger)
+);
 
 ReactDOM.render(
 

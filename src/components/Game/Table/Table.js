@@ -4,7 +4,7 @@ import star from './star.png';
 
 const Table = () => {
 	return(
-		<div className='Table'>
+		<div className='Table rounded-table'>
 			<div className='table-sections'>
 				<div className='table-section'>
 					<h3 className='heading table-heading'>
@@ -66,7 +66,7 @@ const Table = () => {
 			</div>
 			<div className='button-container'>
 				<img className='star' src={star} alt='star'/>
-				<button className='button draw-button'>Abracadabra!</button>
+				<button className='draw-button'>Abracadabra!</button>
 			</div>
 		</div>
 	);

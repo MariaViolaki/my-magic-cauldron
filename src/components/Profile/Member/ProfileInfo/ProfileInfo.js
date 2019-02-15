@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProfileInfo.css';
 
-const ProfileInfo = () => {
+const ProfileInfo = ({name, username, email}) => {
 	return(
 		<div className='ProfileInfo'>
 			<h2 className='profile-heading-2'>
@@ -15,18 +15,7 @@ const ProfileInfo = () => {
 					{`Change`}
 				</button>
 				<p className='info-text'>	
-					{`Laito`}
-				</p>
-			</div>
-			<div>
-				<h4 className='info-heading'>	
-					{`Surname`}
-				</h4>
-				<button className='button info-button'>
-					{`Change`}
-				</button>
-				<p className='info-text'>	
-					{`Sakamaki`}
+					{name}
 				</p>
 			</div>
 			<div>
@@ -37,7 +26,7 @@ const ProfileInfo = () => {
 					{`Change`}
 				</button>
 				<p className='info-text'>	
-					{`laitosakamaki`}
+					{username}
 				</p>
 			</div>
 			<div>
@@ -48,7 +37,7 @@ const ProfileInfo = () => {
 					{`Change`}
 				</button>
 				<p className='info-text'>	
-					{`laitosakamaki@anime.com`}
+					{email}
 				</p>
 			</div>
 			<div>

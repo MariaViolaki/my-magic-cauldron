@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import './Navigation.css';
 import { changeRoute } from '../../redux/actions';
 import {
+	SIGNUP,
+	LOGIN,
+	MEMBER,
 	ROUTE_HOME,
 	ROUTE_GAME,
 	ROUTE_PROFILE
@@ -10,7 +13,7 @@ import {
 
 const mapStateToProps = (state) => {
 	return {
-		route: state.route
+		access: state.setUserAccess.access
 	};
 }
 
@@ -24,6 +27,39 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class Navigation extends Component {
+
+	renderAccessComponent = () => {
+		const { access, onRouteChange } = this.props;
+
+		switch(access) {
+			case MEMBER:
+				return (
+					<li 
+						className='list-item'
+						onClick={() => onRouteChange(ROUTE_PROFILE)}
+						>{'Profile'}
+					</li>
+				);
+			case LOGIN:
+				return (
+					<li 
+						className='list-item'
+						onClick={() => onRouteChange(ROUTE_PROFILE)}
+						>{'Log In'}
+					</li>
+				);
+			case SIGNUP:
+			default:
+				return (
+					<li 
+						className='list-item'
+						onClick={() => onRouteChange(ROUTE_PROFILE)}
+						>{'Sign Up'}
+					</li>
+				);
+		}
+	}
+
 	render() {
 		const { onRouteChange } = this.props;
 		return(
@@ -41,11 +77,7 @@ class Navigation extends Component {
 								onClick={() => onRouteChange(ROUTE_GAME)}
 								>{'Game'}
 							</li>
-							<li 
-								className='list-item'
-								onClick={() => onRouteChange(ROUTE_PROFILE)}
-								>{'Profile'}
-							</li>
+							{this.renderAccessComponent()}
 						</ul>
 					</li>
 				</ul>
