@@ -11,11 +11,15 @@ import { createLogger } from 'redux-logger';
 import './index.css';
 import App from './components/App/App';
 import {
-	setUserAccess, setRoute, signUpUser, logInUser, updateUser
+	setUserAccess, setRoute, signUpUser, logInUser,
+	setUser, updateUser, deactivateAccount, 
+	openActionBox
 } from './redux/reducers';
 
 const rootReducer = combineReducers({
-	setUserAccess, setRoute, signUpUser, logInUser, updateUser
+	setUserAccess, setRoute, signUpUser, logInUser, 
+	setUser, updateUser, deactivateAccount, 
+	openActionBox
 });
 
 const logger = createLogger();

@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import './LogIn.css';
 
 import { 
-	updateUsernameEmail, updatePassword, logInUser,
+	setUsernameEmail, setPassword, logInUser,
 	setUserAccess
 } from '../../../redux/actions';
 
 import {
-	SIGNUP, LOGIN, MEMBER
+	SIGNUP, MEMBER
 } from '../../../redux/constants';
 
 /********************************************/
@@ -18,19 +18,19 @@ const mapStateToProps = (state) => {
 		user: state.logInUser.user,
 		isPending: state.logInUser.isPending,
 		error: state.logInUser.error,
-		username_email: state.updateUser.username_email,
-		password: state.updateUser.password,
+		username_email: state.setUser.username_email,
+		password: state.setUser.password,
 		access: state.setUserAccess.access
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		onUpdateUsernameEmail: (event) => {
-			dispatch(updateUsernameEmail(event.target.value));
+		onSetUsernameEmail: (event) => {
+			dispatch(setUsernameEmail(event.target.value));
 		},
-		onUpdatePassword: (event) => {
-			dispatch(updatePassword(event.target.value));
+		onSetPassword: (event) => {
+			dispatch(setPassword(event.target.value));
 		},
 		onLogInUser: (username_email, password) => {
 			dispatch(logInUser(username_email, password));
@@ -66,14 +66,14 @@ class LogIn extends Component {
 	}
 
 	componentDidUpdate() {
-		if (Object.keys(this.props.user).length != 0) {
+		if (Object.keys(this.props.user).length !== 0) {
 			this.props.onSetUserAccess(MEMBER);
 		}
 	}
 
 	render() {
 		const { 
-			onUpdateUsernameEmail, onUpdatePassword
+			onSetUsernameEmail, onSetPassword
 		} = this.props;
 
 		return( 
@@ -82,15 +82,15 @@ class LogIn extends Component {
 					<h1 className='heading'>Log In</h1>
 					<p className='form-text'>Username or Email</p>
 					<input 
-						className='form-input input-text' 
+						className='form-input' 
 						type='email'
-						onChange={onUpdateUsernameEmail}
+						onChange={onSetUsernameEmail}
 					/>
 					<p className='form-text'>Password</p>
 					<input 
-						className='form-input input-text' 
+						className='form-input' 
 						type='password'
-						onChange={onUpdatePassword}
+						onChange={onSetPassword}
 					/>
 					<div className='form-options'>
 						<button 

@@ -2,7 +2,7 @@ import React from 'react';
 import './PotionScore.css';
 import circle from './circle.png';
 
-const PotionScore = () => {
+const PotionScore = ({ potions }) => {
 	return(
 		<div className='PotionScore'>
 			<div className='score-image-box'>
@@ -15,7 +15,7 @@ const PotionScore = () => {
 					alt='circle'
 				/>
 				<p className='score'>
-					{`20/20`}
+					{`${potions}/20`}
 				</p>
 			</div>
 		</div>

@@ -5,9 +5,7 @@ import SignUp from './SignUp/SignUp';
 import LogIn from './LogIn/LogIn';
 
 import {
-	SIGNUP,
-	LOGIN,
-	MEMBER
+	SIGNUP,	LOGIN, MEMBER
 } from '../../redux/constants';
 
 const Profile = ({ access }) => {

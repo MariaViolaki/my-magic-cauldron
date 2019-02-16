@@ -1,0 +1,59 @@
+#ConfirmationBox {
+	visibility: hidden;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 250px;
+	width: 550px;
+	margin: auto;
+	border: 5px solid #000000;
+	border-radius: 20px;
+	padding: 20px 0;
+	background: #212121;
+  color: #BA68C8;
+  display: grid;
+  align-items: center;
+}
+
+.confirmation-header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;	
+	text-align: center;
+	font-family: 'Thickhead';
+	font-weight: normal;
+}
+
+.confirmation-input {
+	position: relative;
+	margin: 0 20px;
+}
+
+.confirmation-options {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.confirmation-response {
+	display: inline;
+	font-size: 25px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.confirmation-response:hover {
+	text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+	.ConfirmationBox {
+		width: 300px;
+	}
+
+	.confirmation-header {
+		margin-top: 30px;
+	}
+}

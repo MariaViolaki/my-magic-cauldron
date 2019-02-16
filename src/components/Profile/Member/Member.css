@@ -10,6 +10,12 @@
   color: #BA68C8;
 }
 
+.profile-button-box {
+	display: flex;
+	justify-content: space-between;
+	margin: 20px;
+}
+
 @media (max-width: 600px) {
 	.info-box {
 		grid-template-columns: 1fr;

@@ -1,42 +1,64 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './Member.css';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import PotionScore from './PotionScore/PotionScore';
 import Grimoire from './Grimoire/Grimoire';
+import ConfirmationBox from './ConfirmationBox/ConfirmationBox';
+import './Member.css';
 
 import { 
-	updateName, updateUsername, updateEmail
+	openDeactivateBox
 } from '../../../redux/actions.js';
+
+import {
+	OPEN_DEACTIVATE_BOX, OPEN_NAME_BOX,
+	OPEN_USERNAME_BOX, OPEN_EMAIL_BOX
+} from '../../../redux/constants.js';
 
 const mapStateToProps = (state) => {
 	return {
+		action: state.openActionBox.action,
 		name: state.signUpUser.user.name,
-		username: state.signUpUser.user.username,
-		email: state.signUpUser.user.email,
-		potions: state.signUpUser.user.potions
+		potions: state.signUpUser.user.potions,
 	};
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		onNameUpdate: (event) => {
-			dispatch(updateName(event.target.value));
-		},
-		onUsernameUpdate: (event) => {
-			dispatch(updateUsername(event.target.value));
-		},
-		onEmailUpdate: (event) => {
-			dispatch(updateEmail(event.target.value));
+		onOpenDeactivateBox: () => {
+			dispatch(openDeactivateBox());
 		}
 	};
 }
 
 class Member extends Component {
+
+	componentDidUpdate() {
+		const {	action } = this.props;
+
+		switch(action) {
+			case OPEN_NAME_BOX:
+			case OPEN_USERNAME_BOX:
+			case OPEN_EMAIL_BOX:
+			case OPEN_DEACTIVATE_BOX:
+				return(
+					window.document
+					.getElementById('ConfirmationBox')
+					.style.visibility = 'visible'
+				);
+			case '':
+			default:
+				return(
+					window.document
+					.getElementById('ConfirmationBox')
+					.style.visibility = 'hidden'
+				);
+		}	
+	}
+
 	render() {
 		const {
-			name, username, email, potions,
-			onNameUpdate, onUsernameUpdate, onEmailUpdate
+			name, potions, onOpenDeactivateBox
 		} = this.props;
 		
 		return (
@@ -44,20 +66,24 @@ class Member extends Component {
 				<h1 className='heading profile-heading'>
 					{`${name}, the Grand Magician`}
 				</h1>
+				<div className='profile-button-box'>
+					<button 
+						className='button info-button'
+						onClick={onOpenDeactivateBox}>
+						{`Deactivate Account`}
+					</button>
+					<button className='button info-button'>
+						{`Log Out`}
+					</button>
+				</div>
 				<div className='info-box message-section'>
-					<ProfileInfo
-						name={name}
-						username={username}
-						email={email}
-						onNameChange={onNameUpdate}
-						onUsernameChange={onUsernameUpdate}
-						onEmailChange={onEmailUpdate}
-					/>
+					<ProfileInfo />
 					<PotionScore
 						potions={potions}
 					/>
 				</div>
 				<Grimoire />
+				<ConfirmationBox />
 			</div>
 		);
 	}

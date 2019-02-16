@@ -3,12 +3,12 @@ import './SignUp.css';
 import { connect } from 'react-redux';
 
 import { 
-	updateName, updateUsername, updateEmail,
-	updatePassword, signUpUser, setUserAccess
+	setName, setUsername, setEmail, setPassword, 
+	signUpUser, setUserAccess
 } from '../../../redux/actions';
 
 import {
-	SIGNUP, LOGIN, MEMBER
+	LOGIN, MEMBER
 } from '../../../redux/constants';
 
 /********************************************/
@@ -18,27 +18,27 @@ const mapStateToProps = (state) => {
 		user: state.signUpUser.user,
 		isPending: state.signUpUser.isPending,
 		error: state.signUpUser.error,
-		name: state.updateUser.name,
-		username: state.updateUser.username,
-		email: state.updateUser.email,
-		password: state.updateUser.password,
+		name: state.setUser.name,
+		username: state.setUser.username,
+		email: state.setUser.email,
+		password: state.setUser.password,
 		access: state.setUserAccess.access
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		onUpdateName: (event) => {
-			dispatch(updateName(event.target.value));
+		onSetName: (event) => {
+			dispatch(setName(event.target.value));
 		},
-		onUpdateUsername: (event) => {
-			dispatch(updateUsername(event.target.value));
+		onSetUsername: (event) => {
+			dispatch(setUsername(event.target.value));
 		},
-		onUpdateEmail: (event) => {
-			dispatch(updateEmail(event.target.value));
+		onSetEmail: (event) => {
+			dispatch(setEmail(event.target.value));
 		},
-		onUpdatePassword: (event) => {
-			dispatch(updatePassword(event.target.value));
+		onSetPassword: (event) => {
+			dispatch(setPassword(event.target.value));
 		},
 		onSignUpUser: (name, username, email, password) => {
 			dispatch(signUpUser(name, username, email, password));
@@ -74,15 +74,15 @@ class SignUp extends Component {
 	}
 
 	componentDidUpdate() {
-		if (Object.keys(this.props.user).length != 0) {
+		if (Object.keys(this.props.user).length !== 0) {
 			this.props.onSetUserAccess(MEMBER);
 		}
 	}
 
 	render() {
 		const { 
-			onUpdateName, onUpdateUsername,
-			onUpdateEmail, onUpdatePassword
+			onSetName, onSetUsername, onSetEmail, 
+			onSetPassword
 		} = this.props;
 
 		return(
@@ -91,27 +91,27 @@ class SignUp extends Component {
 					<h1 className='heading'>Sign Up</h1>
 					<p className='form-text'>Name</p>
 					<input 
-						className='form-input input-text' 
+						className='form-input' 
 						type='text'
-						onChange={onUpdateName}
+						onChange={onSetName}
 					/>
 					<p className='form-text'>Username</p>
 					<input 
-						className='form-input input-text' 
+						className='form-input' 
 						type='text'
-						onChange={onUpdateUsername}
+						onChange={onSetUsername}
 					/>
 					<p className='form-text'>Email</p>
 					<input 
-						className='form-input input-text' 
+						className='form-input' 
 						type='email'
-						onChange={onUpdateEmail}
+						onChange={onSetEmail}
 					/>
 					<p className='form-text'>Password</p>
 					<input 
-						className='form-input input-text' 
+						className='form-input' 
 						type='password'
-						onChange={onUpdatePassword}
+						onChange={onSetPassword}
 					/>
 					<div className='form-options'>
 						<button 
