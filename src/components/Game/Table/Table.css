@@ -18,90 +18,38 @@
 	flex-wrap: wrap;
 }
 
-.ingredient {
+.element, .flower, .crystal {
 	width: 100px;
 	margin: 5px;
 	box-sizing: border-box;
-	border: 1px solid #212121;
 	border-radius: 5px;
 	padding: 5px;
-	box-shadow: inset 0 0 10px #212121;
 	text-align: center;
-	transition: all 0.3 linear;
 	cursor: pointer;
+	font-weight: bold;
 }
 
-.ingredient:active {
-	transform: scale(0.95);
-	box-shadow: inset 0 0 20px #212121;
+.deselect {
+	border: 1px solid #4A148C;
+	box-shadow: inset 0 0 10px #4A148C;
+	background: #FFF9C4;
+	color: #4A148C;
 }
 
-#fire {
-	background: #DD2C00;
-}
-
-#water {
-	background: #00B0FF;
-}
-
-#air {
-	background: #9FA8DA;
-}
-
-#earth {
-	background: #76FF03;
-}
-
-#sunflower {
-	background: #FFEA00;
-}
-
-#petunia {
-	background: #E040FB;
-}
-
-#orchid {
-	background: #F8BBD0;
-}
-
-#daisy {
-	background: #FFFFFF;
-}
-
-#amber {
-	background: #FFAB00;
-}
-
-#diamond {
-	background: #CFD8DC;
-}
-
-#emerald {
-	background: #1DE9B6;
-}
-
-#opal {
-	background: #81D4FA;
+.select {
+	border: 1px solid #FFF9C4;
+	box-shadow: inset 0 0 10px #FFF9C4;
+	background: #4A148C;
+	color: #FFF9C4;
 }
 
 .button-container {
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
 	margin-top: 50px;
 }
 
-.star {
-	width: 80px;
-	height: 80px;
-	cursor: pointer;
-	transition: all 0.1 linear;
-}
-
-.star:active {
-	transform: scale(0.90);
-}
-
-.draw-button {
+.magic-button {
 	padding: 15px 25px 10px 25px;
 	font-size: 26px;
 	font-family: 'Thickhead';
@@ -118,13 +66,8 @@
 		grid-template-columns: 1fr;
 	}
 
-	.button-container {
-		flex-direction: column-reverse;
-		align-items: center;
-	}
-
 	.draw-button {
-		width: 90%;
+		width: 80%;
 		margin-bottom: 40px;
 		padding: 15px 5px 10px 5px;
 	}

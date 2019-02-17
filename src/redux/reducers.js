@@ -8,7 +8,8 @@ import {
 	DEACTIVATE_SUCCESS, DEACTIVATE_FAILED,
 	OPEN_NAME_BOX, OPEN_USERNAME_BOX,
 	OPEN_EMAIL_BOX, OPEN_DEACTIVATE_BOX,
-	CLEAR_ACTION_BOX
+	CLEAR_ACTION_BOX, SELECT_ELEMENT,
+	SELECT_FLOWER, SELECT_CRYSTAL
 } from './constants.js';
 
 /*********************************************/
@@ -250,3 +251,32 @@ export const openActionBox =
 			return state;
 	}
 }
+
+/*********************************************/
+
+const initialRecipeState = {
+	element: '',
+	flower: '',
+	crystal: ''
+};
+
+export const storeRecipe = 
+(state=initialRecipeState, action={}) => {
+
+	switch(action.type) {
+		case SELECT_ELEMENT:
+			return Object.assign({}, state, {
+				element: action.payload
+			});
+		case SELECT_FLOWER:
+			return Object.assign({}, state, {
+				flower: action.payload
+			});
+		case SELECT_CRYSTAL:
+			return Object.assign({}, state, {
+				crystal: action.payload
+			});
+		default:
+			return state;
+	}
+};

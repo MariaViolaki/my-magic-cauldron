@@ -8,7 +8,8 @@ import {
 	DEACTIVATE_FAILED, OPEN_NAME_BOX,
 	OPEN_USERNAME_BOX, OPEN_EMAIL_BOX,
 	OPEN_DEACTIVATE_BOX, CLEAR_ACTION_BOX,
-	LOGOUT_USER
+	LOGOUT_USER, SELECT_ELEMENT, SELECT_FLOWER,
+	SELECT_CRYSTAL
 } from './constants.js';
 
 /*********************************************/
@@ -47,16 +48,16 @@ export const signUpUser =
 		})
 	})
 	.then(response => response.json())
-	.then(user => {
-		if (!user.length) {
+	.then(profile => {
+		if (!profile[0].length) {
 			return dispatch({
 				type: REQUEST_USER_SUCCESS,
-				payload: user
+				payload: profile
 			})
 		} else {
 			return dispatch({
 				type: REQUEST_USER_FAILED,
-				payload: user
+				payload: profile
 			})
 		}	
 	});
@@ -186,42 +187,42 @@ export const setName = (name) => {
 	return {
 		type: SET_NAME,
 		payload: name
-	}
+	};
 }
 
 export const setUsername = (username) => {
 	return {
 		type: SET_USERNAME,
 		payload: username
-	}
+	};
 }
 
 export const setEmail = (email) => {
 	return {
 		type: SET_EMAIL,
 		payload: email
-	}
+	};
 }
 
 export const setPassword = (password) => {
 	return {
 		type: SET_PASSWORD,
 		payload: password
-	}
+	};
 }
 
 export const setPotions = (potions) => {
 	return {
 		type: SET_POTIONS,
 		payload: potions
-	}
+	};
 }
 
 export const setUsernameEmail = (username_email) => {
 	return {
 		type: SET_USERNAME_EMAIL,
 		payload: username_email
-	}
+	};
 }
 
 /*********************************************/
@@ -258,7 +259,7 @@ export const deactivateAccount = (username) =>
 export const logOutUser = () => {
 	return {
 		type: LOGOUT_USER
-	}
+	};
 }
 
 /*********************************************/
@@ -266,29 +267,52 @@ export const logOutUser = () => {
 export const openNameBox = () => {
 	return {
 		type: OPEN_NAME_BOX
-	}
+	};
 }
 
 export const openUsernameBox = () => {
 	return {
 		type: OPEN_USERNAME_BOX
-	}
+	};
 }
 
 export const openEmailBox = () => {
 	return {
 		type: OPEN_EMAIL_BOX
-	}
+	};
 }
 
 export const openDeactivateBox = () => {
 	return {
 		type: OPEN_DEACTIVATE_BOX
-	}
+	};
 }
 
 export const clearActionBox = () => {
 	return {
 		type: CLEAR_ACTION_BOX
-	}
+	};
+}
+
+/*********************************************/
+
+export const selectElement = (element) => {
+	return {
+		type: SELECT_ELEMENT,
+		payload: element
+	};
+}
+
+export const selectFlower = (flower) => {
+	return {
+		type: SELECT_FLOWER,
+		payload: flower
+	};
+}
+
+export const selectCrystal = (crystal) => {
+	return {
+		type: SELECT_CRYSTAL,
+		payload: crystal
+	};
 }
