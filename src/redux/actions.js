@@ -76,16 +76,16 @@ export const logInUser =
 		})
 	})
 	.then(response => response.json())
-	.then(user => {
-		if (!user.length) {
+	.then(profile => {
+		if (!profile[0].length) {
 			return dispatch({
 				type: REQUEST_USER_SUCCESS,
-				payload: user
+				payload: profile
 			})
 		} else {
 			return dispatch({
 				type: REQUEST_USER_FAILED,
-				payload: user
+				payload: profile
 			})
 		}	
 	});

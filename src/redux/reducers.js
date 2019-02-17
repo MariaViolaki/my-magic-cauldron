@@ -54,6 +54,28 @@ export const setRoute =
 const initialRequestState = {
 	isPending: false,
 	user: {},
+	potions: {
+		anonymitysbreath: false,
+    assassinschoice: false,
+    beautysdeceit: false,
+    carousalgift: false,
+    childswhisper: false,
+    elvenremedy: false,
+    eyeofatlantis: false,
+    fairyshope: false,
+    hydrashead: false,
+    infernalroots: false,
+    jacksbeanstalk: false,
+    raysofastar: false,
+    regretofgenesis: false,
+    shaperofdreams: false,
+    shiningtears: false,
+    silencerofdoubts: false,
+    truelovesmyth: false,
+    wailofamermaid: false,
+    wallflowerssoul: false,
+    veiledpanacea: false
+	},
 	error: ''
 }
 
@@ -68,13 +90,11 @@ export const signUpUser =
 		case REQUEST_USER_SUCCESS:
 			return Object.assign({}, state, {
 				isPending: false,
-				user: action.payload,
-				error: ''
+				user: action.payload[0]
 			});
 		case REQUEST_USER_FAILED:
 			return Object.assign({}, state, {
 				isPending: false,
-				user: {},
 				error: action.payload
 			});
 		default:
@@ -93,7 +113,8 @@ export const logInUser =
 		case REQUEST_USER_SUCCESS:
 			return Object.assign({}, state, {
 				isPending: false,
-				user: action.payload,
+				user: action.payload[0],
+				potions: action.payload[1],
 				error: ''
 			});
 		case REQUEST_USER_FAILED:
