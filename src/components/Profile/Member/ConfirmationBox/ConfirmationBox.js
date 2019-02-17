@@ -5,7 +5,7 @@ import './ConfirmationBox.css';
 import {
 	clearActionBox, setName, setUsername,
 	setEmail, updateName, updateUsername, 
-	updateEmail, deactivateAccount
+	updateEmail, deactivateAccount,	logOutUser
 } from '../../../../redux/actions';
 
 import {
@@ -51,6 +51,9 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		onDeactivateAccount: (username) => {
 			dispatch(deactivateAccount(username));
+		},
+		onLogOutUser: () => {
+			dispatch(logOutUser());
 		}
 	}
 }
@@ -132,31 +135,33 @@ class ConfirmationBox extends Component {
 
 	confirmAction = () => {
 		const { 
-			action, storedUsername, name, username,
-			email, onNameUpdate, onUsernameUpdate,
-			onEmailUpdate
+			action, storedUsername, name, 
+			username, email, onNameUpdate, 
+			onUsernameUpdate, onEmailUpdate, 
+			onDeactivateAccount, onLogOutUser
 		} = this.props;
 		
 		switch(action) {
 			case OPEN_NAME_BOX:
 				this.hideConfirmationBox();
-				return(
-					onNameUpdate(storedUsername, name)
-				);
+				onNameUpdate(storedUsername, name);
+				break;
 			case OPEN_USERNAME_BOX:
 				this.hideConfirmationBox();
-				return(
-					onUsernameUpdate(storedUsername, username)
-				);
+				onUsernameUpdate(storedUsername, username);
+				break;
 			case OPEN_EMAIL_BOX:
 				this.hideConfirmationBox();
-				return(
-					onEmailUpdate(storedUsername, email)
-				);
+				onEmailUpdate(storedUsername, email);
+				break;
 			case OPEN_DEACTIVATE_BOX:
+				this.hideConfirmationBox();
+				onDeactivateAccount(storedUsername);
+				onLogOutUser();
+				break;
 			default:
 				this.hideConfirmationBox();
-				return;
+				break;
 		}
 	}
 

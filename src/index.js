@@ -10,17 +10,25 @@ import { createLogger } from 'redux-logger';
 // App imports
 import './index.css';
 import App from './components/App/App';
+import { LOGOUT_USER } from './redux/constants';
 import {
 	setUserAccess, setRoute, signUpUser, logInUser,
 	setUser, updateUser, deactivateAccount, 
 	openActionBox
 } from './redux/reducers';
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
 	setUserAccess, setRoute, signUpUser, logInUser, 
 	setUser, updateUser, deactivateAccount, 
 	openActionBox
 });
+
+const rootReducer = (state, action) => {
+	if (action.type === LOGOUT_USER) {
+		state = undefined;
+	}
+	return appReducer(state, action);
+}
 
 const logger = createLogger();
 

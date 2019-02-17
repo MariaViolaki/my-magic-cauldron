@@ -7,7 +7,7 @@ import ConfirmationBox from './ConfirmationBox/ConfirmationBox';
 import './Member.css';
 
 import { 
-	openDeactivateBox
+	openDeactivateBox, logOutUser
 } from '../../../redux/actions.js';
 
 import {
@@ -27,6 +27,9 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		onOpenDeactivateBox: () => {
 			dispatch(openDeactivateBox());
+		},
+		onLogOutUser: () => {
+			dispatch(logOutUser());
 		}
 	};
 }
@@ -58,7 +61,8 @@ class Member extends Component {
 
 	render() {
 		const {
-			name, potions, onOpenDeactivateBox
+			name, potions, onOpenDeactivateBox,
+			onLogOutUser
 		} = this.props;
 		
 		return (
@@ -72,7 +76,9 @@ class Member extends Component {
 						onClick={onOpenDeactivateBox}>
 						{`Deactivate Account`}
 					</button>
-					<button className='button info-button'>
+					<button 
+						className='button info-button'
+						onClick={onLogOutUser}>
 						{`Log Out`}
 					</button>
 				</div>

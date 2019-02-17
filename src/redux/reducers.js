@@ -178,25 +178,27 @@ export const setUser =
 
 const initialDeactivationState = {
 	isPending: false,
-	error: false
+	success: '',
+	error: ''
 }
 
 export const deactivateAccount = 
 (state=initialDeactivationState, action={}) => {
 
-	switch (action.payload) {
+	switch (action.type) {
 		case DEACTIVATE_PENDING:
 			return Object.assign({}, state, {
 				isPending: true
 			});
 		case DEACTIVATE_SUCCESS:
 			return Object.assign({
-				isPending: false
+				isPending: false,
+				success: action.payload
 			});
 		case DEACTIVATE_FAILED:
 			return Object.assign({
 				isPending: false,
-				error: true
+				error: action.payload
 			});
 		default:
 			return state;

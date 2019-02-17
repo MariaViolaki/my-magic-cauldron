@@ -4,9 +4,11 @@ import {
 	REQUEST_USER_FAILED, SET_NAME, 
 	SET_USERNAME, SET_EMAIL, SET_PASSWORD,
 	SET_POTIONS, SET_USERNAME_EMAIL,
-	DEACTIVATE_PENDING, OPEN_NAME_BOX,
+	DEACTIVATE_PENDING, DEACTIVATE_SUCCESS,
+	DEACTIVATE_FAILED, OPEN_NAME_BOX,
 	OPEN_USERNAME_BOX, OPEN_EMAIL_BOX,
-	OPEN_DEACTIVATE_BOX, CLEAR_ACTION_BOX
+	OPEN_DEACTIVATE_BOX, CLEAR_ACTION_BOX,
+	LOGOUT_USER
 } from './constants.js';
 
 /*********************************************/
@@ -228,7 +230,7 @@ export const deactivateAccount = (username) =>
 (dispatch) => {
 	dispatch({ type: DEACTIVATE_PENDING });
 	fetch('http://localhost:3002/deactivate', {
-		method: 'post',
+		method: 'delete',
 		headers: {
 			'Content-Type': 'application/json'
 		},
@@ -237,7 +239,26 @@ export const deactivateAccount = (username) =>
 		})
 	})
 	.then(response => response.json())
-	.then(data => console.log(data));
+	.then(data => {
+		dispatch({ 
+			type: DEACTIVATE_SUCCESS,
+			payload: data
+		});
+	})
+	.catch(err => {
+		dispatch({ 
+			type: DEACTIVATE_FAILED,
+			payload: err
+		});
+	});
+}
+
+/*********************************************/
+
+export const logOutUser = () => {
+	return {
+		type: LOGOUT_USER
+	}
 }
 
 /*********************************************/
