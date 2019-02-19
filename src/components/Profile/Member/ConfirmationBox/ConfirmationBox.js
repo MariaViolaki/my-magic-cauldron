@@ -20,8 +20,8 @@ const mapStateToProps = (state) => {
 		name: state.setUser.name,
 		username: state.setUser.username,
 		email: state.setUser.email,
-		updateIsPending: state.requestUser.isPending,
-		updateError: state.requestUser.error
+		isPending: state.requestUser.isPending,
+		error: state.requestUser.error
 	}
 }
 

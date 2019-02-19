@@ -36,6 +36,13 @@ const mapDispatchToProps = (dispatch) => {
 
 class ProfileInfo extends Component {
 
+	openConfirmationBox = (openBoxFunction) => {
+		openBoxFunction();
+		window.document
+		.getElementById('ConfirmationBox')
+		.style.visibility = 'visible';
+	}
+
 	componentDidUpdate() {
 		const {	action } = this.props;
 
@@ -76,7 +83,7 @@ class ProfileInfo extends Component {
 					</h4>
 					<button 
 						className='button info-button'
-						onClick={onOpenNameBox}>
+						onClick={() => this.openConfirmationBox(onOpenNameBox)}>
 						{`Change`}
 					</button>
 					<p 
@@ -91,7 +98,7 @@ class ProfileInfo extends Component {
 					</h4>
 					<button 
 						className='button info-button'
-						onClick={onOpenUsernameBox}>
+						onClick={() => this.openConfirmationBox(onOpenUsernameBox)}>
 						{`Change`}
 					</button>
 					<p className='info-text'>	
@@ -104,7 +111,7 @@ class ProfileInfo extends Component {
 					</h4>
 					<button 
 						className='button info-button'
-						onClick={onOpenEmailBox}>
+						onClick={() => this.openConfirmationBox(onOpenEmailBox)}>
 						{`Change`}
 					</button>
 					<p className='info-text'>	

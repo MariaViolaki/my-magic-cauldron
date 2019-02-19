@@ -58,9 +58,17 @@ class Member extends Component {
 		}	
 	}
 
+	openConfirmationBox = () => {
+		const { onOpenDeactivateBox } = this.props;
+		onOpenDeactivateBox();
+		window.document
+		.getElementById('ConfirmationBox')
+		.style.visibility = 'visible';
+	}
+
 	render() {
 		const {
-			name, onOpenDeactivateBox, onLogOutUser
+			name, onLogOutUser
 		} = this.props;
 		
 		return (
@@ -71,7 +79,7 @@ class Member extends Component {
 				<div className='profile-button-box'>
 					<button 
 						className='button info-button'
-						onClick={onOpenDeactivateBox}>
+						onClick={this.openConfirmationBox}>
 						{`Deactivate Account`}
 					</button>
 					<button 

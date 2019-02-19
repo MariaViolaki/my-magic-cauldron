@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Navigation.css';
 
-import { changeRoute } from '../../redux/actions';
+import {
+ changeRoute, selectElement, selectFlower,
+ selectCrystal, setPotion
+} from '../../redux/actions';
 
 import {
 	SIGNUP, LOGIN, MEMBER,
@@ -19,21 +22,47 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		onRouteChange: (route) => {
 			dispatch(changeRoute(route));
+		},
+		onSelectElement: (element) => {
+			dispatch(selectElement(element));
+		},
+		onSelectFlower: (flower) => {
+			dispatch(selectFlower(flower));
+		},
+		onSelectCrystal: (crystal) => {
+			dispatch(selectCrystal(crystal));
+		},
+		onSetPotion: (potion) => {
+			dispatch(setPotion(potion));
 		}
 	};
 }
 
 class Navigation extends Component {
 
+	changeRoute = (route) => {
+		const {
+			onRouteChange, onSelectElement,
+			onSelectFlower, onSelectCrystal,
+			onSetPotion
+		} = this.props;
+
+		onSelectElement('');
+		onSelectFlower('');
+		onSelectCrystal('');
+		onSetPotion('');
+		onRouteChange(route);
+	}
+
 	renderAccessComponent = () => {
-		const { access, onRouteChange } = this.props;
+		const { access } = this.props;
 
 		switch(access) {
 			case MEMBER:
 				return (
 					<li 
 						className='list-item'
-						onClick={() => onRouteChange(ROUTE_PROFILE)}
+						onClick={() => this.changeRoute(ROUTE_PROFILE)}
 						>{'Profile'}
 					</li>
 				);
@@ -41,7 +70,7 @@ class Navigation extends Component {
 				return (
 					<li 
 						className='list-item'
-						onClick={() => onRouteChange(ROUTE_PROFILE)}
+						onClick={() => this.changeRoute(ROUTE_PROFILE)}
 						>{'Log In'}
 					</li>
 				);
@@ -50,7 +79,7 @@ class Navigation extends Component {
 				return (
 					<li 
 						className='list-item'
-						onClick={() => onRouteChange(ROUTE_PROFILE)}
+						onClick={() => this.changeRoute(ROUTE_PROFILE)}
 						>{'Sign Up'}
 					</li>
 				);
@@ -64,7 +93,7 @@ class Navigation extends Component {
 				<ul className='major-nav-list'>
 					<li 
 						className='nav-header list-item'
-						onClick={() => onRouteChange(ROUTE_HOME)}
+						onClick={() => this.changeRoute(ROUTE_HOME)}
 						>{'My Magic Cauldron'}
 					</li>
 					<li>
