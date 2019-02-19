@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Navigation.css';
+
 import { changeRoute } from '../../redux/actions';
+
 import {
-	SIGNUP,
-	LOGIN,
-	MEMBER,
-	ROUTE_HOME,
-	ROUTE_GAME,
-	ROUTE_PROFILE
+	SIGNUP, LOGIN, MEMBER,
+	ROUTE_HOME, ROUTE_GAME,	ROUTE_PROFILE
 } from '../../redux/constants';
 
 const mapStateToProps = (state) => {
@@ -17,7 +15,6 @@ const mapStateToProps = (state) => {
 	};
 }
 
-// Send actions to reducer
 const mapDispatchToProps = (dispatch) => {
 	return {
 		onRouteChange: (route) => {

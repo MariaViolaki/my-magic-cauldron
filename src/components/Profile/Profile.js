@@ -1,8 +1,8 @@
 import React from 'react';
-import './Profile.css';
 import Member from './Member/Member';
 import SignUp from './SignUp/SignUp';
 import LogIn from './LogIn/LogIn';
+import './Profile.css';
 
 import {
 	SIGNUP,	LOGIN, MEMBER

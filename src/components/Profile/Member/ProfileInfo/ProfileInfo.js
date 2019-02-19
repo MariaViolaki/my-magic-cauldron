@@ -13,9 +13,9 @@ import {
 
 const mapStateToProps = (state) => {
 	return {
-		name: state.signUpUser.user.name,
-		username: state.signUpUser.user.username,
-		email: state.signUpUser.user.email,
+		name: state.requestUser.user.name,
+		username: state.requestUser.user.username,
+		email: state.requestUser.user.email,
 		action: state.openActionBox.action
 	};
 }

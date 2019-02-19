@@ -12,15 +12,17 @@ import './index.css';
 import App from './components/App/App';
 import { LOGOUT_USER } from './redux/constants';
 import {
-	setUserAccess, setRoute, signUpUser, logInUser,
-	setUser, updateUser, deactivateAccount, 
-	openActionBox, storeRecipe, setPotion
+	setUserAccess, setRoute, requestUser,
+	deactivateAccount, setUser, setPotion,
+	storeRecipe, openActionBox
 } from './redux/reducers';
 
+/*********************************************/
+
 const appReducer = combineReducers({
-	setUserAccess, setRoute, signUpUser, logInUser, 
-	setUser, updateUser, deactivateAccount, 
-	openActionBox, storeRecipe, setPotion
+	setUserAccess, setRoute, requestUser,
+	deactivateAccount, setUser, setPotion,
+	storeRecipe, openActionBox
 });
 
 const rootReducer = (state, action) => {

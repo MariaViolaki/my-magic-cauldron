@@ -1,7 +1,7 @@
 import React from 'react';
-import './Home.css';
 import Showcase from './Showcase/Showcase';
 import WelcomeMessage from './WelcomeMessage/WelcomeMessage';
+import './Home.css';
 
 const Home = () => {
 	return (

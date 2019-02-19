@@ -1,8 +1,8 @@
 import React from 'react';
-import './Game.css';
 import Cauldron from './Cauldron/Cauldron';
 import Table from './Table/Table';
 import Ingredients from './Ingredients/Ingredients';
+import './Game.css';
 
 const Game = () => {
 	return(

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './SignUp.css';
 import { connect } from 'react-redux';
 
 import { 
@@ -15,9 +14,9 @@ import {
 
 const mapStateToProps = (state) => {
 	return {
-		user: state.signUpUser.user,
-		isPending: state.signUpUser.isPending,
-		error: state.signUpUser.error,
+		user: state.requestUser.user,
+		isPending: state.requestUser.isPending,
+		error: state.requestUser.error,
 		name: state.setUser.name,
 		username: state.setUser.username,
 		email: state.setUser.email,

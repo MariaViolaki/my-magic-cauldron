@@ -8,48 +8,48 @@ import {
 
 const mapStateToProps = (state) => {
 	return {
-		userPotions: state.updateUser.user.potions,
+		userPotions: state.requestUser.user.potions,
 		potions: {
 			anonymitysbreath: 
-				state.updateUser.potions.anonymitysbreath,
+				state.requestUser.potions.anonymitysbreath,
 	    assassinschoice: 
-	    	state.updateUser.potions.assassinschoice,
+	    	state.requestUser.potions.assassinschoice,
 	    beautysdeceit: 
-	    	state.updateUser.potions.beautysdeceit,
+	    	state.requestUser.potions.beautysdeceit,
 	    carousalgift: 
-	    	state.updateUser.potions.carousalgift,
+	    	state.requestUser.potions.carousalgift,
 	    childswhisper: 
-	    	state.updateUser.potions.childswhisper,
+	    	state.requestUser.potions.childswhisper,
 	    elvenremedy: 
-	    	state.updateUser.potions.elvenremedy,
+	    	state.requestUser.potions.elvenremedy,
 	    eyeofatlantis: 
-	    	state.updateUser.potions.eyeofatlantis,
+	    	state.requestUser.potions.eyeofatlantis,
 	    fairyshope: 
-	    	state.updateUser.potions.fairyshope,
+	    	state.requestUser.potions.fairyshope,
 	    hydrashead: 
-	    	state.updateUser.potions.hydrashead,
+	    	state.requestUser.potions.hydrashead,
 	    infernalroots: 
-	    	state.updateUser.potions.infernalroots,
+	    	state.requestUser.potions.infernalroots,
 	    jacksbeanstalk: 
-	    	state.updateUser.potions.jacksbeanstalk,
+	    	state.requestUser.potions.jacksbeanstalk,
 	    raysofastar: 
-	    	state.updateUser.potions.raysofastar,
+	    	state.requestUser.potions.raysofastar,
 	    regretofgenesis: 
-	    	state.updateUser.potions.regretofgenesis,
+	    	state.requestUser.potions.regretofgenesis,
 	    shaperofdreams: 
-	    	state.updateUser.potions.shaperofdreams,
+	    	state.requestUser.potions.shaperofdreams,
 	    shiningtears: 
-	    	state.updateUser.potions.shiningtears,
+	    	state.requestUser.potions.shiningtears,
 	    silencerofdoubts: 
-	    	state.updateUser.potions.silencerofdoubts,
+	    	state.requestUser.potions.silencerofdoubts,
 	    truelovesmyth: 
-	    	state.updateUser.potions.truelovesmyth,
+	    	state.requestUser.potions.truelovesmyth,
 	    wailofamermaid: 
-	    	state.updateUser.potions.wailofamermaid,
+	    	state.requestUser.potions.wailofamermaid,
 	    wallflowerssoul: 
-	    	state.updateUser.potions.wallflowerssoul,
+	    	state.requestUser.potions.wallflowerssoul,
 	    veiledpanacea: 
-	    	state.updateUser.potions.veiledpanacea
+	    	state.requestUser.potions.veiledpanacea
 		}	
 	};
 }

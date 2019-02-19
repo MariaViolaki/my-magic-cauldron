@@ -1,6 +1,7 @@
 import React from 'react';
 import Potion from './Potion/Potion'
 import './Grimoire.css';
+
 import { 
 	potions
 } from '../../../../potions/potions';

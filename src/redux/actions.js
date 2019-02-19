@@ -1,15 +1,16 @@
 import { 
-	SET_USER_ACCESS, CHANGE_ROUTE, 
+	SET_USER_ACCESS, CHANGE_ROUTE,
 	REQUEST_USER_PENDING, REQUEST_USER_SUCCESS, 
-	REQUEST_USER_FAILED, SET_NAME, 
-	SET_USERNAME, SET_EMAIL, SET_PASSWORD,
-	SET_POTION, SET_USERNAME_EMAIL,
+	REQUEST_USER_FAILED, 
+	LOGOUT_USER,
 	DEACTIVATE_PENDING, DEACTIVATE_SUCCESS,
-	DEACTIVATE_FAILED, OPEN_NAME_BOX,
-	OPEN_USERNAME_BOX, OPEN_EMAIL_BOX,
-	OPEN_DEACTIVATE_BOX, CLEAR_ACTION_BOX,
-	LOGOUT_USER, SELECT_ELEMENT, SELECT_FLOWER,
-	SELECT_CRYSTAL, SET_POTION_NUMBER
+	DEACTIVATE_FAILED,
+	SET_NAME, SET_USERNAME, SET_EMAIL, SET_PASSWORD,
+	SET_USERNAME_EMAIL,
+	SET_POTION, SET_POTION_NUMBER,
+	SELECT_ELEMENT, SELECT_FLOWER, SELECT_CRYSTAL,
+	OPEN_NAME_BOX, OPEN_USERNAME_BOX, OPEN_EMAIL_BOX,
+	OPEN_DEACTIVATE_BOX, CLEAR_ACTION_BOX
 } from './constants.js';
 
 /*********************************************/
@@ -214,6 +215,43 @@ export const updatePotions =
 
 /*********************************************/
 
+export const logOutUser = () => {
+	return {
+		type: LOGOUT_USER
+	};
+}
+
+/*********************************************/
+
+export const deactivateAccount = (username) => 
+(dispatch) => {
+	dispatch({ type: DEACTIVATE_PENDING });
+	fetch('http://localhost:3002/deactivate', {
+		method: 'delete',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			username: username
+		})
+	})
+	.then(response => response.json())
+	.then(data => {
+		dispatch({ 
+			type: DEACTIVATE_SUCCESS,
+			payload: data
+		});
+	})
+	.catch(err => {
+		dispatch({ 
+			type: DEACTIVATE_FAILED,
+			payload: err
+		});
+	});
+}
+
+/*********************************************/
+
 export const setName = (name) => {
 	return {
 		type: SET_NAME,
@@ -249,40 +287,40 @@ export const setUsernameEmail = (username_email) => {
 	};
 }
 
-/*********************************************/
+export const setPotion = (potion) => {
+	return {
+		type: SET_POTION,
+		payload: potion
+	};
+}
 
-export const deactivateAccount = (username) => 
-(dispatch) => {
-	dispatch({ type: DEACTIVATE_PENDING });
-	fetch('http://localhost:3002/deactivate', {
-		method: 'delete',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({
-			username: username
-		})
-	})
-	.then(response => response.json())
-	.then(data => {
-		dispatch({ 
-			type: DEACTIVATE_SUCCESS,
-			payload: data
-		});
-	})
-	.catch(err => {
-		dispatch({ 
-			type: DEACTIVATE_FAILED,
-			payload: err
-		});
-	});
+export const setPotionNumber = (number) => {
+	return {
+		type: SET_POTION_NUMBER,
+		payload: number
+	};
 }
 
 /*********************************************/
 
-export const logOutUser = () => {
+export const selectElement = (element) => {
 	return {
-		type: LOGOUT_USER
+		type: SELECT_ELEMENT,
+		payload: element
+	};
+}
+
+export const selectFlower = (flower) => {
+	return {
+		type: SELECT_FLOWER,
+		payload: flower
+	};
+}
+
+export const selectCrystal = (crystal) => {
+	return {
+		type: SELECT_CRYSTAL,
+		payload: crystal
 	};
 }
 
@@ -315,42 +353,5 @@ export const openDeactivateBox = () => {
 export const clearActionBox = () => {
 	return {
 		type: CLEAR_ACTION_BOX
-	};
-}
-
-/*********************************************/
-
-export const selectElement = (element) => {
-	return {
-		type: SELECT_ELEMENT,
-		payload: element
-	};
-}
-
-export const selectFlower = (flower) => {
-	return {
-		type: SELECT_FLOWER,
-		payload: flower
-	};
-}
-
-export const selectCrystal = (crystal) => {
-	return {
-		type: SELECT_CRYSTAL,
-		payload: crystal
-	};
-}
-
-export const setPotion = (potion) => {
-	return {
-		type: SET_POTION,
-		payload: potion
-	};
-}
-
-export const setPotionNumber = (number) => {
-	return {
-		type: SET_POTION_NUMBER,
-		payload: number
 	};
 }

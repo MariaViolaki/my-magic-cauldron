@@ -13,7 +13,7 @@ import {
 
 const mapStateToProps = (state) => {
 	return {
-		username: state.logInUser.user.username,
+		username: state.requestUser.user.username,
 		element: state.storeRecipe.element,
 		flower: state.storeRecipe.flower,
 		crystal: state.storeRecipe.crystal,

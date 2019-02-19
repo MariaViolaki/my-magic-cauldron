@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './LogIn.css';
 
 import { 
 	setUsernameEmail, setPassword, logInUser,
@@ -15,9 +14,9 @@ import {
 
 const mapStateToProps = (state) => {
 	return {
-		user: state.logInUser.user,
-		isPending: state.logInUser.isPending,
-		error: state.logInUser.error,
+		user: state.requestUser.user,
+		isPending: state.requestUser.isPending,
+		error: state.requestUser.error,
 		username_email: state.setUser.username_email,
 		password: state.setUser.password,
 		access: state.setUserAccess.access

@@ -5,7 +5,7 @@ import circle from './circle.png';
 
 const mapStateToProps = (state) => {
 	return {
-		potions: state.updateUser.potionNumber
+		potions: state.requestUser.potionNumber
 	};
 }
 

@@ -16,12 +16,12 @@ import {
 const mapStateToProps = (state) => {
 	return {
 		action: state.openActionBox.action,
-		storedUsername: state.signUpUser.user.username,
+		storedUsername: state.requestUser.user.username,
 		name: state.setUser.name,
 		username: state.setUser.username,
 		email: state.setUser.email,
-		updateIsPending: state.updateUser.isPending,
-		updateError: state.updateUser.error
+		updateIsPending: state.requestUser.isPending,
+		updateError: state.requestUser.error
 	}
 }
 

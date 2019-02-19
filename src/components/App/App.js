@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import { connect } from 'react-redux';
 import Navigation from '../Navigation/Navigation';
 import Home from '../Home/Home';
@@ -8,9 +7,7 @@ import Profile from '../Profile/Profile';
 import Footer from '../Footer/Footer';
 
 import {
-	ROUTE_HOME,
-	ROUTE_GAME,
-	ROUTE_PROFILE
+	ROUTE_HOME,	ROUTE_GAME,	ROUTE_PROFILE
 } from '../../redux/constants';
 
 const mapStateToProps = (state) => {

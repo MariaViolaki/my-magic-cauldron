@@ -1,6 +1,6 @@
 import React from 'react';
-import './Showcase.css';
 import wizard from './wizard.png';
+import './Showcase.css';
 
 const Showcase = () => {
 	return(
