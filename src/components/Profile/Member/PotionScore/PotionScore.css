@@ -7,23 +7,24 @@
 .score-image-box {
   position:relative;
 	height:auto;
+  width: 220px;
   margin: auto;
   text-align:center;
 }
 
 .score-image {
-	width: 250px;
+	width: 200px;
 	height: auto;
 }
 
 .score {
   position: absolute;
   margin: auto;
-  top: 260px;
+  top: 215px;
   bottom: 0;
   left: 0;
   right: 0;
-  font-size: 60px;
+  font-size: 50px;
   font-family: 'Thickhead';
   color: #BA68C8;
 }

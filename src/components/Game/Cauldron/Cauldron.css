@@ -10,7 +10,7 @@
 	border-left: 2px solid #212121;
 	border-right: 2px solid #212121;
 	padding: 20px;
-	font-size: 20px;
+	font-size: 18px;
 }
 
 .recipe-header {
@@ -22,8 +22,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 280px;
-	height: 280px;
+	width: 250px;
+	height: 250px;
 	border: 20px solid #212121;
 	border-radius: 180px;
 	background: #4A148C;

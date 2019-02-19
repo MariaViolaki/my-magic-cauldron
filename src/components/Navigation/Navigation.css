@@ -14,9 +14,9 @@
 .list-item {
 	display: flex;
 	align-items: center;
-	height: 60px;
+	height: 50px;
 	padding: 0 30px;
-	font-size: 20px;
+	font-size: 18px;
 }
 
 .list-item:hover {
@@ -34,14 +34,14 @@
 .nav-header {
 	margin-right: auto;
 	font-family: 'Thickhead';
-	font-size: 26px;
+	font-size: 25px;
 	font-weight: normal;
 }
 
 @media only screen and (max-width: 600px) {
   .major-nav-list {
   	flex-direction: column;
-  	height: 120px;
+  	height: 100px;
   }
 
   .major-nav-list li {

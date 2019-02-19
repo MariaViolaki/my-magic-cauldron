@@ -3,14 +3,21 @@ import { connect } from 'react-redux';
 import './Table.css';
 
 import {
-	selectElement, selectFlower, selectCrystal
+	selectElement, selectFlower, selectCrystal,
+	updatePotions, setPotion
 } from '../../../redux/actions';
+
+import { 
+	potions
+} from '../../../potions/potions';
 
 const mapStateToProps = (state) => {
 	return {
+		username: state.logInUser.user.username,
 		element: state.storeRecipe.element,
 		flower: state.storeRecipe.flower,
-		crystal: state.storeRecipe.crystal
+		crystal: state.storeRecipe.crystal,
+		potion: state.setPotion.potion
 	};
 }
 
@@ -24,6 +31,14 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		onSelectCrystal: (crystal) => {
 			dispatch(selectCrystal(crystal));
+		},
+		onSetPotion: (potion) => {
+			dispatch(setPotion(potion));
+		},
+		onUpdatePotions: (username, element, flower, crystal) => {
+			dispatch(
+				updatePotions(username, element, flower, crystal)
+			);
 		}
 	};
 }
@@ -31,7 +46,6 @@ const mapDispatchToProps = (dispatch) => {
 class Table extends Component {
 
 		selectIngredient = (event, classCode) => {
-		
 		const {
 			onSelectElement, onSelectFlower, onSelectCrystal
 		} = this.props;
@@ -45,6 +59,8 @@ class Table extends Component {
 				break;
 			case 'crystal':
 				onSelectCrystal(event.target.id);
+				break;
+			default:
 				break;
 		}
 
@@ -61,6 +77,40 @@ class Table extends Component {
 		});
 		ingredient.classList.add('select');
 		ingredient.classList.remove('deselect');
+	}
+
+	submitRecipe = () => {
+		const {
+			username, element, flower, crystal,
+			onUpdatePotions, onSetPotion
+		} = this.props;
+
+		if (element.length > 0 
+			&& flower.length > 0 
+			&& crystal.length > 0) {
+			if (username === undefined) {
+				onUpdatePotions(
+					'', element, flower, crystal
+				);
+			} else {
+				onUpdatePotions(
+					username, element, flower, crystal
+				);
+			}
+
+			const storedPotion = potions.filter(potion => {
+				return potion.element === element
+				&& potion.flower === flower
+				&& potion.crystal === crystal
+			});
+
+			if (storedPotion.length > 0) {
+				onSetPotion(storedPotion[0].code);
+			} else {
+				onSetPotion('veiledpanacea');
+			}
+			
+		}
 	}
 
 	render() {
@@ -187,7 +237,8 @@ class Table extends Component {
 				</div>
 				<div className='button-container'>
 					<button 
-						className='magic-button'>
+						className='magic-button'
+						onClick={this.submitRecipe}>
 						{'Abracadabra!'}
 					</button>
 				</div>

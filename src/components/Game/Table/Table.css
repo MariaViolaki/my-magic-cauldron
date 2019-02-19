@@ -23,7 +23,7 @@
 	margin: 5px;
 	box-sizing: border-box;
 	border-radius: 5px;
-	padding: 5px;
+	padding: 5px 6px 7px 6px;
 	text-align: center;
 	cursor: pointer;
 	font-weight: bold;
@@ -51,7 +51,7 @@
 
 .magic-button {
 	padding: 15px 25px 10px 25px;
-	font-size: 26px;
+	font-size: 24px;
 	font-family: 'Thickhead';
 }
 

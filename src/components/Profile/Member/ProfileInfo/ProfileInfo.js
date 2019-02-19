@@ -67,10 +67,10 @@ class ProfileInfo extends Component {
 
 		return(
 			<div className='ProfileInfo'>
-				<h2 className='profile-heading-2'>
+				<h2 className='profile-heading'>
 					{`Profile Information:`}
 				</h2>
-				<div>
+				<div className='info-section'>
 					<h4 className='info-heading'>	
 						{`Name`}
 					</h4>
@@ -85,7 +85,7 @@ class ProfileInfo extends Component {
 						{name}
 					</p>
 				</div>
-				<div>
+				<div className='info-section'>
 					<h4 className='info-heading'>	
 						{`Username`}
 					</h4>
@@ -98,7 +98,7 @@ class ProfileInfo extends Component {
 						{username}
 					</p>
 				</div>
-				<div>
+				<div className='info-section'>
 					<h4 className='info-heading'>	
 						{`Email`}
 					</h4>

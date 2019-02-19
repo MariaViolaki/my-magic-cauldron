@@ -3,7 +3,7 @@ import {
 	ROUTE_HOME, REQUEST_USER_PENDING, 
 	REQUEST_USER_SUCCESS, REQUEST_USER_FAILED, 
 	SET_NAME, SET_USERNAME, SET_EMAIL, 
-	SET_PASSWORD, SET_POTIONS,
+	SET_PASSWORD, SET_POTION,
 	SET_USERNAME_EMAIL, DEACTIVATE_PENDING,
 	DEACTIVATE_SUCCESS, DEACTIVATE_FAILED,
 	OPEN_NAME_BOX, OPEN_USERNAME_BOX,
@@ -55,28 +55,8 @@ export const setRoute =
 const initialRequestState = {
 	isPending: false,
 	user: {},
-	potions: {
-		anonymitysbreath: false,
-    assassinschoice: false,
-    beautysdeceit: false,
-    carousalgift: false,
-    childswhisper: false,
-    elvenremedy: false,
-    eyeofatlantis: false,
-    fairyshope: false,
-    hydrashead: false,
-    infernalroots: false,
-    jacksbeanstalk: false,
-    raysofastar: false,
-    regretofgenesis: false,
-    shaperofdreams: false,
-    shiningtears: false,
-    silencerofdoubts: false,
-    truelovesmyth: false,
-    wailofamermaid: false,
-    wallflowerssoul: false,
-    veiledpanacea: false
-	},
+	potions: {},
+	potionNumber: 0,
 	error: ''
 }
 
@@ -91,7 +71,12 @@ export const signUpUser =
 		case REQUEST_USER_SUCCESS:
 			return Object.assign({}, state, {
 				isPending: false,
-				user: action.payload[0]
+				user: action.payload[0],
+				potions: action.payload[1],
+				potionNumber: Object.values(
+					action.payload[1]).filter(value => {
+						return value === true
+					}).length
 			});
 		case REQUEST_USER_FAILED:
 			return Object.assign({}, state, {
@@ -116,12 +101,14 @@ export const logInUser =
 				isPending: false,
 				user: action.payload[0],
 				potions: action.payload[1],
-				error: ''
+				potionNumber: Object.values(
+					action.payload[1]).filter(value => {
+						return value === true
+					}).length
 			});
 		case REQUEST_USER_FAILED:
 			return Object.assign({}, state, {
 				isPending: false,
-				user: {},
 				error: action.payload
 			});
 		default:
@@ -140,7 +127,12 @@ export const updateUser =
 		case REQUEST_USER_SUCCESS:
 			return Object.assign({}, state, {
 				isPending: false,
-				success: action.payload
+				user: action.payload[0],
+				potions: action.payload[1],
+				potionNumber: Object.values(
+					action.payload[1]).filter(value => {
+						return value === true
+					}).length
 			});
 		case REQUEST_USER_FAILED:
 			return Object.assign({}, state, {
@@ -159,7 +151,6 @@ const initialUserState = {
 	username: '',
 	email: '',
 	password: '',
-	potions: 0,
 	username_email: ''
 }
 
@@ -182,10 +173,6 @@ export const setUser =
 		case SET_PASSWORD:
 			return Object.assign({}, state, {
 				password: action.payload
-			});
-		case SET_POTIONS:
-			return Object.assign({}, state, {
-				potions: action.payload
 			});
 		case SET_USERNAME_EMAIL:
 			return Object.assign({}, state, {
@@ -280,3 +267,20 @@ export const storeRecipe =
 			return state;
 	}
 };
+
+/*********************************************/
+
+const initialPotionState = {
+	potion: ''
+};
+
+export const setPotion =
+(state=initialPotionState, action={}) => {
+
+	switch(action.type) {
+		case SET_POTION:
+			return { potion: action.payload };
+		default:
+			return state;
+	}
+}

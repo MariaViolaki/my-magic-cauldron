@@ -21,7 +21,6 @@ const mapStateToProps = (state) => {
 		username: state.setUser.username,
 		email: state.setUser.email,
 		updateIsPending: state.updateUser.isPending,
-		updateSuccess: state.updateUser.success,
 		updateError: state.updateUser.error
 	}
 }

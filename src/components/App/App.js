@@ -38,11 +38,15 @@ class App extends Component {
 	}
 
   render() {
+  	const { route, access } = this.props;
     return (
       <div className="App">
         <Navigation />
 				{this.renderRouteComponent()}
-        <Footer />
+        <Footer 
+        	route={route}
+        	access={access}
+        />
       </div>
     );
   }

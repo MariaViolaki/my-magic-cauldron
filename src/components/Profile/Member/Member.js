@@ -18,8 +18,7 @@ import {
 const mapStateToProps = (state) => {
 	return {
 		action: state.openActionBox.action,
-		name: state.signUpUser.user.name,
-		potions: state.signUpUser.user.potions,
+		name: state.signUpUser.user.name
 	};
 }
 
@@ -61,15 +60,14 @@ class Member extends Component {
 
 	render() {
 		const {
-			name, potions, onOpenDeactivateBox,
-			onLogOutUser
+			name, onOpenDeactivateBox, onLogOutUser
 		} = this.props;
 		
 		return (
 			<div>
-				<h1 className='heading profile-heading'>
+				<h2 className='heading'>
 					{`${name}, the Grand Magician`}
-				</h1>
+				</h2>
 				<div className='profile-button-box'>
 					<button 
 						className='button info-button'
@@ -84,9 +82,7 @@ class Member extends Component {
 				</div>
 				<div className='info-box message-section'>
 					<ProfileInfo />
-					<PotionScore
-						potions={potions}
-					/>
+					<PotionScore />
 				</div>
 				<Grimoire />
 				<ConfirmationBox />

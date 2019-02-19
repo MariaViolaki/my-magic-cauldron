@@ -17,7 +17,8 @@ export const SET_NAME = 'SET_NAME';
 export const SET_USERNAME = 'SET_USERNAME';
 export const SET_EMAIL = 'SET_EMAIL';
 export const SET_PASSWORD = 'SET_PASSWORD';
-export const SET_POTIONS = 'SET_POTIONS';
+export const SET_POTION = 'SET_POTION';
+export const SET_POTION_NUMBER = 'SET_POTION_NUMBER';
 export const SET_USERNAME_EMAIL = 'SET_USERNAME_EMAIL';
 
 export const DEACTIVATE_PENDING = 'DEACTIVATE_PENDING';

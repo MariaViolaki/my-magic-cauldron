@@ -14,13 +14,13 @@ import { LOGOUT_USER } from './redux/constants';
 import {
 	setUserAccess, setRoute, signUpUser, logInUser,
 	setUser, updateUser, deactivateAccount, 
-	openActionBox, storeRecipe
+	openActionBox, storeRecipe, setPotion
 } from './redux/reducers';
 
 const appReducer = combineReducers({
 	setUserAccess, setRoute, signUpUser, logInUser, 
 	setUser, updateUser, deactivateAccount, 
-	openActionBox, storeRecipe
+	openActionBox, storeRecipe, setPotion
 });
 
 const rootReducer = (state, action) => {

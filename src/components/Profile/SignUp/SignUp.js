@@ -66,7 +66,26 @@ const mergeProps = (stateProps, dispatchProps) => {
 class SignUp extends Component {
 
 	onSignUp = (event) => {
-		this.props.onSubmitRequest();
+		const fields = window.document
+		.getElementsByClassName('signup-field');
+		const values = [];
+
+		for (let i=0; i < fields.length; i++) {
+			values.push(fields[i].value);
+		}
+		const valuesArray = values.filter(value => {
+			return value.length > 0;
+		});
+
+		if (valuesArray.length === fields.length) {
+			this.props.onSubmitRequest();
+		}
+	}
+
+	enterAndSignUp = (event) => {
+    if (event.keyCode === 13 || event.which === 13) { 
+    	this.onSignUp();
+    } 
 	}
 
 	switchToLogIn = () => {
@@ -88,30 +107,34 @@ class SignUp extends Component {
 		return(
 			<div className='form-box'>
 				<div className='form-inner-box rounded-table'>
-					<h1 className='heading'>Sign Up</h1>
+					<h2 className='heading'>Sign Up</h2>
 					<p className='form-text'>Name</p>
 					<input 
-						className='form-input' 
+						className='form-input signup-field' 
 						type='text'
 						onChange={onSetName}
+						onKeyPress={this.enterAndSignUp}
 					/>
 					<p className='form-text'>Username</p>
 					<input 
-						className='form-input' 
+						className='form-input signup-field' 
 						type='text'
 						onChange={onSetUsername}
+						onKeyPress={this.enterAndSignUp}
 					/>
 					<p className='form-text'>Email</p>
 					<input 
-						className='form-input' 
+						className='form-input signup-field' 
 						type='email'
 						onChange={onSetEmail}
+						onKeyPress={this.enterAndSignUp}
 					/>
 					<p className='form-text'>Password</p>
 					<input 
-						className='form-input' 
+						className='form-input signup-field' 
 						type='password'
 						onChange={onSetPassword}
+						onKeyPress={this.enterAndSignUp}
 					/>
 					<div className='form-options'>
 						<button 

@@ -58,7 +58,26 @@ const mergeProps = (stateProps, dispatchProps) => {
 class LogIn extends Component {
 
 	onLogIn = (event) => {
-		this.props.onSubmitRequest();
+		const fields = window.document
+		.getElementsByClassName('login-field');
+		const values = [];
+
+		for (let i=0; i < fields.length; i++) {
+			values.push(fields[i].value);
+		}
+		const valuesArray = values.filter(value => {
+			return value.length > 0;
+		});
+
+		if (valuesArray.length === fields.length) {
+			this.props.onSubmitRequest();
+		}
+	}
+
+	enterAndLogIn = (event) => {
+    if (event.keyCode === 13 || event.which === 13) { 
+    	this.onLogIn();
+    } 
 	}
 
 	switchToSignUp = () => {
@@ -79,18 +98,20 @@ class LogIn extends Component {
 		return( 
 			<div className='form-box'>
 				<div className='form-inner-box rounded-table'>
-					<h1 className='heading'>Log In</h1>
+					<h2 className='heading'>Log In</h2>
 					<p className='form-text'>Username or Email</p>
 					<input 
-						className='form-input' 
+						className='form-input login-field' 
 						type='email'
 						onChange={onSetUsernameEmail}
+						onKeyPress={this.enterAndLogIn}
 					/>
 					<p className='form-text'>Password</p>
 					<input 
-						className='form-input' 
+						className='form-input login-field' 
 						type='password'
 						onChange={onSetPassword}
+						onKeyPress={this.enterAndLogIn}
 					/>
 					<div className='form-options'>
 						<button 

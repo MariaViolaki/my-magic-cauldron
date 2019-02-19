@@ -3,13 +3,13 @@ import {
 	REQUEST_USER_PENDING, REQUEST_USER_SUCCESS, 
 	REQUEST_USER_FAILED, SET_NAME, 
 	SET_USERNAME, SET_EMAIL, SET_PASSWORD,
-	SET_POTIONS, SET_USERNAME_EMAIL,
+	SET_POTION, SET_USERNAME_EMAIL,
 	DEACTIVATE_PENDING, DEACTIVATE_SUCCESS,
 	DEACTIVATE_FAILED, OPEN_NAME_BOX,
 	OPEN_USERNAME_BOX, OPEN_EMAIL_BOX,
 	OPEN_DEACTIVATE_BOX, CLEAR_ACTION_BOX,
 	LOGOUT_USER, SELECT_ELEMENT, SELECT_FLOWER,
-	SELECT_CRYSTAL
+	SELECT_CRYSTAL, SET_POTION_NUMBER
 } from './constants.js';
 
 /*********************************************/
@@ -109,7 +109,7 @@ export const updateName = (username, newName) =>
 	})
 	.then(response => response.json())
 	.then(data => {
-		if (data.name === newName) {
+		if (data[0].name === newName) {
 			return dispatch({ 
 		  	type: REQUEST_USER_SUCCESS,
 		  	payload: data
@@ -138,7 +138,7 @@ export const updateUsername = (username, newUsername) =>
 	})
 	.then(response => response.json())
 	.then(data => {
-		if (data.username === newUsername) {
+		if (data[0].username === newUsername) {
 		  return dispatch({ 
 		  	type: REQUEST_USER_SUCCESS,
 		  	payload: data
@@ -167,7 +167,7 @@ export const updateEmail = (username, newEmail) =>
 	})
 	.then(response => response.json())
 	.then(data => {
-		if (data.email === newEmail) {
+		if (data[0].email === newEmail) {
 		  return dispatch({ 
 		  	type: REQUEST_USER_SUCCESS,
 		  	payload: data
@@ -178,6 +178,37 @@ export const updateEmail = (username, newEmail) =>
 				payload: data
 			});
 		}
+	});
+}
+
+export const updatePotions = 
+(username, element, flower, crystal) => (dispatch) => {
+	dispatch({ type: REQUEST_USER_PENDING });
+	fetch('http://localhost:3002/game', {
+		method: 'put',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			username: username,
+			element: element,
+			flower: flower,
+			crystal: crystal
+		})
+	})
+	.then(response => response.json())
+	.then(data => {
+		console.log(data);
+		return dispatch({
+			type: REQUEST_USER_SUCCESS,
+			payload: data
+		});
+	})
+	.catch(err => {
+		return dispatch({
+			type: REQUEST_USER_FAILED,
+			payload: err
+		});
 	});
 }
 
@@ -208,13 +239,6 @@ export const setPassword = (password) => {
 	return {
 		type: SET_PASSWORD,
 		payload: password
-	};
-}
-
-export const setPotions = (potions) => {
-	return {
-		type: SET_POTIONS,
-		payload: potions
 	};
 }
 
@@ -314,5 +338,19 @@ export const selectCrystal = (crystal) => {
 	return {
 		type: SELECT_CRYSTAL,
 		payload: crystal
+	};
+}
+
+export const setPotion = (potion) => {
+	return {
+		type: SET_POTION,
+		payload: potion
+	};
+}
+
+export const setPotionNumber = (number) => {
+	return {
+		type: SET_POTION_NUMBER,
+		payload: number
 	};
 }

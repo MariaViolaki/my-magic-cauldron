@@ -1,5 +1,5 @@
 .Grimoire {
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 .grimoire-heading {
@@ -9,8 +9,8 @@
 .potion-list {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	grid-gap: 20px;
-	margin: 20px;
+	grid-gap: 15px;
+	margin: 15px;
 }
 
 .potion-entry {
@@ -23,6 +23,6 @@
 }
 
 .potion-image {
-	height: 80px;
+	height: 70px;
 	margin-right: 20px;
 }

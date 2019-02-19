@@ -1,22 +1,5 @@
-.secondary-message {
-	display: grid;
-	grid-template-columns: 4fr 1fr;
-}
-
 .paragraph {
 	padding: 10px 0 20px 0;
-	font-size: 18px;
-}
-
-.welcome-image-box {
-	display: flex;
-	align-items: center;
-	margin: 10px;
-}
-
-.welcome-image {
-	height: 150px;
-	width: auto;
 }
 
 @media (max-width: 600px) {
@@ -24,15 +7,6 @@
 		margin: 0px;
 		border: none;
 		padding: 20px;
-	}
-
-	.secondary-message {
-		grid-template-columns: 1fr;
-	}
-
-	.welcome-image-box {
-		margin: 20px 0 0 0;
-		justify-content: center;
 	}
 }
 

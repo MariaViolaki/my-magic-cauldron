@@ -3,5 +3,11 @@
 	align-items: center;
 	justify-content: center;
 	height: 40px;
-	margin-top: 20px;
+}
+
+.sticky {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
 }

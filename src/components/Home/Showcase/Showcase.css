@@ -7,9 +7,8 @@
 }
 
 .showcase-img {
-	height: 550px;
+	height: 500px;
 }
-
 
 @media (max-width: 600px) {
 	.showcase-img {
