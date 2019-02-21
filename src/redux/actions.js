@@ -36,7 +36,7 @@ export const changeRoute = (route) => {
 export const signUpUser = 
 (name, username, email, password) => (dispatch) => {
 	dispatch({ type: REQUEST_USER_PENDING });
-	fetch('http://localhost:3002/signup', {
+	fetch('https://infinite-sierra-57162.herokuapp.com/signup', {
 		method: 'post',
 		headers: {
 			'Content-Type': 'application/json'
@@ -67,7 +67,7 @@ export const signUpUser =
 export const logInUser = 
 (username_email, password) => (dispatch) => {
 	dispatch({ type: REQUEST_USER_PENDING });
-	fetch('http://localhost:3002/login', {
+	fetch('https://infinite-sierra-57162.herokuapp.com/login', {
 		method: 'post',
 		headers: {
 			'Content-Type': 'application/json'
@@ -98,7 +98,7 @@ export const logInUser =
 export const updateName = (username, newName) =>
 (dispatch) => {
 	dispatch({ type: REQUEST_USER_PENDING });
-	fetch('http://localhost:3002/newname', {
+	fetch('https://infinite-sierra-57162.herokuapp.com/newname', {
 		method: 'put',
 		headers: {
 			'Content-Type': 'application/json'
@@ -127,7 +127,7 @@ export const updateName = (username, newName) =>
 export const updateUsername = (username, newUsername) =>
 (dispatch) => {
 	dispatch({ type: REQUEST_USER_PENDING });
-	fetch('http://localhost:3002/newusername', {
+	fetch('https://infinite-sierra-57162.herokuapp.com/newusername', {
 		method: 'put',
 		headers: {
 			'Content-Type': 'application/json'
@@ -156,7 +156,7 @@ export const updateUsername = (username, newUsername) =>
 export const updateEmail = (username, newEmail) =>
 (dispatch) => {
 	dispatch({ type: REQUEST_USER_PENDING });
-	fetch('http://localhost:3002/newemail', {
+	fetch('https://infinite-sierra-57162.herokuapp.com/newemail', {
 		method: 'put',
 		headers: {
 			'Content-Type': 'application/json'
@@ -185,7 +185,7 @@ export const updateEmail = (username, newEmail) =>
 export const updatePotions = 
 (username, element, flower, crystal) => (dispatch) => {
 	dispatch({ type: REQUEST_USER_PENDING });
-	fetch('http://localhost:3002/game', {
+	fetch('https://infinite-sierra-57162.herokuapp.com/game', {
 		method: 'put',
 		headers: {
 			'Content-Type': 'application/json'
@@ -226,7 +226,7 @@ export const logOutUser = () => {
 export const deactivateAccount = (username) => 
 (dispatch) => {
 	dispatch({ type: DEACTIVATE_PENDING });
-	fetch('http://localhost:3002/deactivate', {
+	fetch('https://infinite-sierra-57162.herokuapp.com/deactivate', {
 		method: 'delete',
 		headers: {
 			'Content-Type': 'application/json'
