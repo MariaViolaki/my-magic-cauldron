@@ -52,6 +52,7 @@ class Navigation extends Component {
 		onSelectCrystal('');
 		onSetPotion('');
 		onRouteChange(route);
+		window.scrollTo(0, 0);
 	}
 
 	renderAccessComponent = () => {
