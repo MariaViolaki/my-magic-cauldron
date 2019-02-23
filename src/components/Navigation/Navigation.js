@@ -55,6 +55,13 @@ class Navigation extends Component {
 		window.scrollTo(0, 0);
 	}
 
+	selectGameRoute = () => {
+		const {	onRouteChange	} = this.props;
+
+		onRouteChange(ROUTE_GAME);
+		window.scrollTo(0, 0);
+	}
+
 	renderAccessComponent = () => {
 		const { access } = this.props;
 
@@ -101,7 +108,7 @@ class Navigation extends Component {
 						<ul className='minor-nav-list'>
 							<li 
 								className='list-item'
-								onClick={() => onRouteChange(ROUTE_GAME)}
+								onClick={this.selectGameRoute}
 								>{'Game'}
 							</li>
 							{this.renderAccessComponent()}
