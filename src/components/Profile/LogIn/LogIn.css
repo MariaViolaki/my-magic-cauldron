@@ -1,0 +1,10 @@
+.LogIn {
+	margin-bottom: 60px;
+}
+
+@media (max-width: 600px) {
+	.LogIn {
+		margin-top: -40px;
+		margin-bottom: 20px;
+	}
+}

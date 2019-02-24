@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './SignUp.css';
 
 import { 
 	setName, setUsername, setEmail, setPassword, 
@@ -104,7 +105,7 @@ class SignUp extends Component {
 		} = this.props;
 
 		return(
-			<div className='form-box'>
+			<div className='SignUp form-box'>
 				<div className='form-inner-box rounded-table'>
 					<h2 className='heading'>Sign Up</h2>
 					<p className='form-text'>Name</p>

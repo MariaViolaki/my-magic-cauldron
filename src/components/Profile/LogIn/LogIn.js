@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './LogIn.css';
 
 import { 
 	setUsernameEmail, setPassword, logInUser,
@@ -95,7 +96,7 @@ class LogIn extends Component {
 		} = this.props;
 
 		return( 
-			<div className='form-box'>
+			<div className='LogIn form-box'>
 				<div className='form-inner-box rounded-table'>
 					<h2 className='heading'>Log In</h2>
 					<p className='form-text'>Username or Email</p>

@@ -95,7 +95,6 @@ class Navigation extends Component {
 	}
 
 	render() {
-		const { onRouteChange } = this.props;
 		return(
 			<nav className='Navigation nav-footer'>
 				<ul className='major-nav-list'>
